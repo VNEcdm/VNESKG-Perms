@@ -1,0 +1,22 @@
+local Players = game:GetService("Players")
+
+local idsPermitidos = {
+	[8102811173] = true,
+	[1287277818] = true,
+	[1290624671] = true,
+	[8710384814] = true
+}
+
+local function verificarJogador(player)
+	if not idsPermitidos[player.UserId] then
+		player:Kick("Você não tem permissão para entrar usar o script.")
+	end
+end
+
+-- Verifica quem entrar depois que o script iniciar
+Players.PlayerAdded:Connect(verificarJogador)
+
+-- Verifica jogadores que já estejam no servidor
+for _, player in ipairs(Players:GetPlayers()) do
+	task.spawn(verificarJogador, player)
+end
