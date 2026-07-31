@@ -1,9 +1,7 @@
 local Players = game:GetService("Players")
 
 local idsPermitidos = {
-	[8102811173] = true,
-	[1287277818] = true,
-	[1290624671] = true,
+	[11380227369] = true,
 	[8710384814] = true
 }
 
